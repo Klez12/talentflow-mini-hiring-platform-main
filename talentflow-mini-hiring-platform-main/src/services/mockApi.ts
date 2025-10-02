@@ -711,3 +711,12 @@ const handlers = [
 ];
 
 export const worker = setupWorker(...handlers);
+
+
+export async function getAllCandidates() {
+  // Simulate fetching all candidates (if you already have a function like this, reuse it)
+  const response = await fetch("/api/candidates"); // If MirageJS/MSW mocks this
+  if (!response.ok) throw new Error("Failed to fetch candidates");
+  return await response.json();
+}
+

@@ -11,6 +11,18 @@ import {
 import { Job, Candidate } from '../types';
 import { apiCall } from '../utils/apiUtils';
 import Card from './ui/Card';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+
+const COLORS = ["#8884d8", "#82ca9d", "#ffc658", "#ff7f50", "#8dd1e1", "#a4de6c"];
+
+
 
 const AnalyticsDashboard: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
