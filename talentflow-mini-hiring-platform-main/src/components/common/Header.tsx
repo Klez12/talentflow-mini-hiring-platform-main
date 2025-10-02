@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="bg-white dark:bg-gray-900 shadow-soft border-b border-gray-200 dark:border-gray-700 sticky top-0 z-40"
+      className="bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800 shadow-lg border-b border-blue-900 sticky top-0 z-40"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -86,17 +86,17 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
             <Link to="/" className="flex items-center space-x-3 group">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-md"
+                className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center shadow-md"
               >
-                <span className="text-white font-bold text-lg">TF</span>
+                <span className="text-white font-bold text-lg">TS</span>
               </motion.div>
-              <span className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                TalentFlow
+              <span className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                TalentSync
               </span>
             </Link>
             <Link
               to="/"
-              className="hidden sm:flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="hidden sm:flex items-center px-3 py-1.5 text-sm font-medium text-blue-200 hover:text-white hover:bg-blue-900 rounded-lg transition-colors"
             >
               Dashboard
             </Link>
@@ -113,8 +113,8 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
                   to={item.path}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
                     active
-                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
+                      ? 'text-blue-300 bg-blue-900'
+                      : 'text-blue-200 hover:text-white hover:bg-blue-800'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -122,7 +122,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
                   {active && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-lg -z-10"
+                      className="absolute inset-0 bg-blue-900 rounded-lg -z-10"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -134,21 +134,20 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
           {/* Desktop User Menu */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            
             {/* User Info */}
-            <div className="flex items-center space-x-3 px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800">
-              <UserCircleIcon className="w-6 h-6 text-gray-400" />
+            <div className="flex items-center space-x-3 px-3 py-2 rounded-lg bg-blue-900">
+              <UserCircleIcon className="w-6 h-6 text-blue-300" />
               <div className="text-sm">
-                <p className="font-medium text-gray-900 dark:text-white">{username}</p>
-                <p className="text-gray-500 dark:text-gray-400">{role}</p>
+                <p className="font-medium text-white">{username}</p>
+                <p className="text-blue-200">{role}</p>
               </div>
             </div>
-
             <Button
               variant="ghost"
               size="sm"
               onClick={onLogout}
-              icon={<ArrowRightOnRectangleIcon className="w-4 h-4" />}
+              icon={<ArrowRightOnRectangleIcon className="w-4 h-4 text-blue-300" />}
+              className="text-white hover:text-blue-300"
             >
               Logout
             </Button>
@@ -156,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="md:hidden p-2 rounded-lg text-blue-200 hover:bg-blue-900 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
