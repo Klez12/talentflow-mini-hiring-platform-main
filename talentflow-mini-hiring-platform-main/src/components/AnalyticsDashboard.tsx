@@ -126,84 +126,88 @@ const AnalyticsDashboard: React.FC = () => {
     <div className="space-y-6">
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        {/* Total Jobs Card - Solid Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="p-6">
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-fuchsia-800 via-purple-900 to-indigo-950">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Total Jobs</p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-white">{analytics.totalJobs}</p>
-                <p className="text-sm text-green-600 dark:text-green-400">
+                <p className="text-sm font-semibold text-white mb-1">Total Jobs</p>
+                <p className="text-4xl font-extrabold text-yellow-300 drop-shadow-lg">{analytics.totalJobs}</p>
+                <p className="text-sm text-lime-300 mt-2 font-bold">
                   {analytics.activeJobs} active
                 </p>
               </div>
-              <BriefcaseIcon className="w-12 h-12 text-blue-500" />
+              <BriefcaseIcon className="w-14 h-14 text-yellow-700 drop-shadow-lg" />
             </div>
           </Card>
         </motion.div>
 
+        {/* Applications Card - Solid Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <Card className="p-6">
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-sky-800 via-indigo-900 to-purple-950">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Applications</p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-white">{analytics.totalApplications}</p>
-                <p className="text-sm text-blue-600 dark:text-blue-400">
+                <p className="text-sm font-semibold text-white mb-1">Applications</p>
+                <p className="text-4xl font-extrabold text-cyan-300 drop-shadow-lg">{analytics.totalApplications}</p>
+                <p className="text-sm text-cyan-300 mt-2 font-bold">
                   {Math.round(analytics.totalApplications / analytics.activeJobs || 0)} per job
                 </p>
               </div>
-              <UsersIcon className="w-12 h-12 text-green-500" />
+              <UsersIcon className="w-14 h-14 text-cyan-700 drop-shadow-lg" />
             </div>
           </Card>
         </motion.div>
 
+        {/* Hire Rate Card - Solid Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
         >
-          <Card className="p-6">
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-purple-900 via-fuchsia-800 to-pink-900">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Hire Rate</p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-white">
+                <p className="text-sm font-semibold text-white mb-1">Hire Rate</p>
+                <p className="text-4xl font-extrabold text-green-300 drop-shadow-lg">
                   {Math.round((analytics.candidatesByStage.hired || 0) / analytics.totalApplications * 100 || 0)}%
                 </p>
-                <div className="flex items-center text-sm">
-                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-green-600 dark:text-green-400">+2.3%</span>
+                <div className="flex items-center text-sm mt-2">
+                  <ArrowTrendingUpIcon className="w-5 h-5 text-green-700 mr-2 drop-shadow" />
+                  <span className="text-green-300 font-bold">+2.3%</span>
                 </div>
               </div>
-              <ChartBarIcon className="w-12 h-12 text-purple-500" />
+              <ChartBarIcon className="w-14 h-14 text-green-700 drop-shadow-lg" />
             </div>
           </Card>
         </motion.div>
 
+        {/* Avg. Time to Hire Card - Solid Text */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card className="p-6">
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-indigo-900 via-blue-950 to-gray-950">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Avg. Time to Hire</p>
-                <p className="text-3xl font-bold text-gray-900 dark:text-white">
+                <p className="text-sm font-semibold text-white mb-1">Avg. Time to Hire</p>
+                <p className="text-4xl font-extrabold text-orange-300 drop-shadow-lg">
                   {analytics.avgTimeInStage.hired || 0}d
                 </p>
-                <div className="flex items-center text-sm">
-                  <ArrowTrendingDownIcon className="w-4 h-4 text-green-500 mr-1" />
-                  <span className="text-green-600 dark:text-green-400">-1.2d</span>
+                <div className="flex items-center text-sm mt-2">
+                  <ArrowTrendingDownIcon className="w-5 h-5 text-orange-700 mr-2 drop-shadow" />
+                  <span className="text-orange-300 font-bold">-1.2d</span>
                 </div>
               </div>
-              <ClockIcon className="w-12 h-12 text-orange-500" />
+              <ClockIcon className="w-14 h-14 text-orange-700 drop-shadow-lg" />
             </div>
           </Card>
         </motion.div>
@@ -216,29 +220,28 @@ const AnalyticsDashboard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Candidate Pipeline</h3>
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-950">
+            <h3 className="text-lg font-semibold text-white mb-6">Candidate Pipeline</h3>
             <div className="space-y-4">
               {stages.map((stage) => {
                 const count = analytics.candidatesByStage[stage.key] || 0;
                 const percentage = (count / analytics.totalApplications) * 100 || 0;
-                
                 return (
                   <div key={stage.key} className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className={`w-3 h-3 rounded-full ${stage.color}`} />
-                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      <span className="text-sm font-semibold text-white">
                         {stage.label}
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <div className="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                      <div className="w-32 bg-blue-950 rounded-full h-2">
                         <div
                           className={`h-2 rounded-full ${stage.color}`}
                           style={{ width: `${percentage}%` }}
                         />
                       </div>
-                      <span className="text-sm font-medium text-gray-900 dark:text-white w-8">
+                      <span className="text-sm font-extrabold text-cyan-200 w-8">
                         {count}
                       </span>
                     </div>
@@ -255,24 +258,24 @@ const AnalyticsDashboard: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Top Performing Jobs</h3>
+          <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-blue-950 via-blue-900 to-gray-950">
+            <h3 className="text-lg font-semibold text-white mb-6">Top Performing Jobs</h3>
             <div className="space-y-4">
               {analytics.topPerformingJobs.map((item, index) => (
                 <div key={item.job?.id || index} className="flex items-center justify-between">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                    <p className="text-sm font-semibold text-cyan-200 truncate">
                       {item.job?.title || 'Unknown Job'}
                     </p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-blue-200">
                       {item.job?.location || 'Unknown Location'}
                     </p>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-sm font-medium text-gray-900 dark:text-white">
+                    <span className="text-sm font-extrabold text-yellow-200">
                       {item.applications}
                     </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">applications</span>
+                    <span className="text-xs text-blue-200">applications</span>
                   </div>
                 </div>
               ))}
@@ -287,15 +290,15 @@ const AnalyticsDashboard: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7 }}
       >
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Conversion Funnel</h3>
+        <Card className="p-6 shadow-xl rounded-xl bg-gradient-to-br from-blue-950 via-blue-950 to-gray-950">
+          <h3 className="text-lg font-semibold text-white mb-6">Conversion Funnel</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {Object.entries(analytics.conversionRates).map(([key, rate]) => (
               <div key={key} className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                <div className="text-2xl font-bold text-cyan-200">
                   {Math.round(rate)}%
                 </div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 capitalize">
+                <div className="text-sm text-blue-200 capitalize">
                   {key.replace('-', ' → ').replace('-to-', ' to ')}
                 </div>
               </div>
